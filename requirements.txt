@@ -1,0 +1,33 @@
+# These requirements are only necessary when developing on vivify.
+
+# development
+Werkzeug==0.14.1
+django-debug-toolbar==1.11
+django-extensions==2.1.5
+psycopg2
+
+# Sandbox
+Pillow==5.4.1
+Whoosh==2.7.4
+django-environ==0.4.5
+django-redis==4.10.0
+pysolr==3.7.0
+redis==3.1.0
+requests==2.21.0
+whitenoise==4.1.2
+django-oscar
+django
+
+# Linting
+flake8==3.6.0
+flake8-debugger==3.1.0
+flake8-blind-except==0.1.1
+isort==4.3.4
+
+# Helpers
+pyprof2calltree==1.4.4
+ipdb==0.11
+ipython==7.2.0
+
+# Country data
+pycountry==18.12.8
