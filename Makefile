@@ -20,7 +20,6 @@ install-python: ## Install python requirements
 	conda install uwsgi
 	pip install -r requirements.txt
 	pip install -r requirements_migrations.txt
-	pip install -e .[test]
 
 
 create_env: ##creates a conda env
