@@ -6,6 +6,6 @@
 - `git clone https://github.com/horcruxxx/vivify-backend`
 - `cd vivify-backend`
 - `make create_env`
-- `conda activate vivify_backend`
+- `conda activate vivify_backend` or `source activate vivify_backend`
 - `make sandbox`
 - `sandbox/manage.py runserver`
