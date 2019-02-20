@@ -21,3 +21,4 @@
 
 Developers:
 - Sushobhana Patra
+- Amrita Gupta
