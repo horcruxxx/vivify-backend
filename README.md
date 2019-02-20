@@ -9,3 +9,6 @@
 - `conda activate vivify_backend`
 - `make sandbox`
 - `sandbox/manage.py runserver`
+
+Developers:
+- Sushobhana Patra
