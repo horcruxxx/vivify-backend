@@ -18,3 +18,6 @@
 # To Run it on the local server
 
 - `sandbox/manage.py runserver`
+
+Developers:
+- Sushobhana Patra
