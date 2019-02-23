@@ -15,6 +15,7 @@ ALLOWED_HOSTS = [
     'master.oscarcommerce.com',
     'localhost',
     '127.0.0.1',
+    '806f15c8.ngrok.io'
 ]
 
 # This is needed for the hosted version of the sandbox
@@ -318,7 +319,15 @@ INSTALLED_APPS = [
 
     # For allowing dashboard access
     'apps.gateway',
+
+    'rest_framework',
+    'mycustomapi',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 # Add Oscar's custom auth backend so users can sign in using their email
 # address.
@@ -359,13 +368,14 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 # Here's a sample Haystack config if using Solr (which is recommended)
-#HAYSTACK_CONNECTIONS = {
+# HAYSTACK_CONNECTIONS = {
 #    'default': {
 #        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
 #        'URL': 'http://127.0.0.1:8983/solr/oscar_latest/',
 #        'INCLUDE_SPELLING': True
 #    },
-#}
+# }
+
 
 # =============
 # Debug Toolbar
@@ -382,7 +392,7 @@ from oscar.defaults import *
 # Meta
 # ====
 
-OSCAR_SHOP_TAGLINE = 'Sandbox'
+OSCAR_SHOP_TAGLINE = 'Vivify'
 
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
