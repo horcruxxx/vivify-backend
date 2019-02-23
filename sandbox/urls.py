@@ -13,12 +13,22 @@ from oscar.app import application
 from apps.gateway import urls as gateway_urls
 from apps.sitemaps import base_sitemaps
 
+# from oscarapi.app import application as api
+from django.urls import path
+
+from oscar.app import application as oscar
+
+from mycustomapi.app import application as api
+
 admin.autodiscover()
 
 urlpatterns = [
     # Include admin as convenience. It's unsupported and only included
     # for developers.
     url(r'^admin/', admin.site.urls),
+    path('api/', api.urls, name = 'mycustomapi'),
+    path('',oscar.urls),
+    # url(r'^api/', api.urls),
 
     # i18n URLS need to live outside of i18n_patterns scope of Oscar
     url(r'^i18n/', include(django.conf.urls.i18n)),
