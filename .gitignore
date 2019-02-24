@@ -44,8 +44,8 @@ nosetests.xml
 
 # Sandbox content
 settings_local.py
-/sandbox/*.sqlite
-/sandbox/assets/
-/sandbox/public/
-/sandbox/whoosh_index/
-/sandbox/logs/
+/vivify/*.sqlite
+/vivify/assets/
+/vivify/public/
+/vivify/whoosh_index/
+/vivify/logs/

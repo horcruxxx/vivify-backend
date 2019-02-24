@@ -29,42 +29,33 @@ activate_env: ## activates the conda env
 	conda activate vivify_backend
 
 #############################
-# Sandbox management commands
+# Vivify management commands
 #############################
-sandbox:  install build_sandbox ## Install requirements and create a sandbox
+vivify:  install build_vivify ## Install requirements and create vivify
 
-build_sandbox: sandbox_clean sandbox_load_user sandbox_load_data ## Creates a sandbox from scratch
+build_vivify: vivify_clean vivify_load_user vivify_load_data ## Creates vivify from scratch
 
-sandbox_clean: ## Clean sandbox images,cache,static and database
+vivify_clean: ## Clean vivify images,cache,static and database
 	# Remove media
-	-rm -rf sandbox/public/media/images
-	-rm -rf sandbox/public/media/cache
-	-rm -rf sandbox/public/static
-	-rm -f sandbox/db.sqlite
+	-rm -rf vivify/public/media/images
+	-rm -rf vivify/public/media/cache
+	-rm -rf vivify/public/static
+	-rm -f vivify/db.sqlite
 	# Create database
-	sandbox/manage.py migrate
+	vivify/manage.py migrate
 
-sandbox_load_user: ## Load user data into sandbox
-	sandbox/manage.py loaddata sandbox/fixtures/auth.json
+vivify_load_user: ## Load user data into vivify
+	vivify/manage.py loaddata vivify/fixtures/auth.json
 
-sandbox_load_data: ## Import fixtures and collect static
+vivify_load_data: ## Import fixtures and collect static
 	# Import some fixtures. Order is important as JSON fixtures include primary keys
-	sandbox/manage.py loaddata sandbox/fixtures/child_products.json
-	sandbox/manage.py oscar_import_catalogue sandbox/fixtures/*.csv
-	sandbox/manage.py oscar_import_catalogue_images sandbox/fixtures/images.tar.gz
-	sandbox/manage.py oscar_populate_countries --initial-only
-	sandbox/manage.py loaddata sandbox/fixtures/pages.json sandbox/fixtures/ranges.json sandbox/fixtures/offers.json
-	sandbox/manage.py loaddata sandbox/fixtures/orders.json sandbox/fixtures/promotions.json
-	sandbox/manage.py clear_index --noinput
-	sandbox/manage.py update_index catalogue
-	sandbox/manage.py thumbnail cleanup
-	sandbox/manage.py collectstatic --noinput
-
-sandbox_image: ## Build latest docker image of django-oscar-sandbox
-	docker build -t django-oscar-sandbox:latest .
-
-
-	pip install twine wheel
-	rm -rf dist/*
-	python setup.py sdist bdist_wheel
-	twine upload -s dist/*
+	vivify/manage.py loaddata vivify/fixtures/child_products.json
+	vivify/manage.py oscar_import_catalogue vivify/fixtures/*.csv
+	vivify/manage.py oscar_import_catalogue_images vivify/fixtures/images.tar.gz
+	vivify/manage.py oscar_populate_countries --initial-only
+	vivify/manage.py loaddata vivify/fixtures/pages.json vivify/fixtures/ranges.json vivify/fixtures/offers.json
+	vivify/manage.py loaddata vivify/fixtures/orders.json vivify/fixtures/promotions.json
+	vivify/manage.py clear_index --noinput
+	vivify/manage.py update_index catalogue
+	vivify/manage.py thumbnail cleanup
+	vivify/manage.py collectstatic --noinput
