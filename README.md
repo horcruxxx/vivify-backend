@@ -8,17 +8,19 @@
 - `cd vivify-backend`
 - `make create_env`
 - `conda activate vivify_backend` or `source activate vivify_backend`
-- `make sandbox`
+- `make vivify`
 
 # After making changes
 
 - `git pull origin master`
-- `make build_sandbox`
+- `make build_vivify`
 
 # To Run it on the local server
 
-- `sandbox/manage.py runserver`
+- `vivify/manage.py runserver`
 
 Developers:
-- Sushobhana Patra
-- Amrita Gupta
+- [Sushobhana Patra](https://github.com/sushobhana)
+- [Amrita Gupta](https://github.com/amrita154)
+- [Pardeep Singh](https://github.com/Pard33p)
+- [Jayesh Bhalla](https://github.com/jayesh101)
