@@ -26,8 +26,8 @@ urlpatterns = [
     # Include admin as convenience. It's unsupported and only included
     # for developers.
     url(r'^admin/', admin.site.urls),
-    path('api/', api.urls, name = 'mycustomapi'),
-    path('',oscar.urls),
+    path('api/', api.urls),
+    # path('',oscar.urls),
     # url(r'^api/', api.urls),
 
     # i18n URLS need to live outside of i18n_patterns scope of Oscar
