@@ -10,6 +10,16 @@ Product = get_model('catalogue', 'Product')
 Selector = get_class('partner.strategy', 'Selector')
 # Price = get_model('catalogue', 'Price')
 
+class MyRecentlyViewedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_model('analytics', 'UserProductView')
+        fields = ('product',)
+
+class MyMostViewedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_model('analytics', 'ProductRecord')
+        fields = ('product',)
+
 class WishlistSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -82,4 +92,3 @@ class QRSerializer(serializers.Serializer):
 
 class MyAddProductSerializer(serializers.Serializer):
     quantity = serializers.IntegerField()
-    

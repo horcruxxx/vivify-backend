@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     'master.oscarcommerce.com',
     'localhost',
     '127.0.0.1',
-    '8481df04.ngrok.io'
+    '59cb6f87.ngrok.io'
 ]
 
 # This is needed for the hosted version of the sandbox
@@ -404,8 +404,8 @@ OSCAR_ALLOW_ANON_CHECKOUT = True
 # Sample order/line status settings. This is quite simplistic. It's like you'll
 # want to override the set_status method on the order object to do more
 # sophisticated things.
-OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCARAPI_INITIAL_ORDER_STATUS = 'Pending'
+OSCARAPI_INITIAL_LINE_STATUS = 'Pending'
 
 # This dict defines the new order statuses than an order can move to
 OSCAR_ORDER_STATUS_PIPELINE = {
