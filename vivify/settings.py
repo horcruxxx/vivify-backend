@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     'master.oscarcommerce.com',
     'localhost',
     '127.0.0.1',
-    '806f15c8.ngrok.io'
+    '59cb6f87.ngrok.io'
 ]
 
 # This is needed for the hosted version of the sandbox
@@ -260,7 +260,7 @@ LOGGING = {
     }
 }
 
-
+from oscar import get_core_apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -271,44 +271,44 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
 
-    'oscar',
-    'oscar.apps.analytics',
-    'oscar.apps.checkout',
-    'oscar.apps.address',
-    'oscar.apps.shipping',
-    'oscar.apps.catalogue',
-    'oscar.apps.catalogue.reviews',
-    'oscar.apps.partner',
-    'oscar.apps.basket',
-    'oscar.apps.payment',
-    'oscar.apps.offer',
-    'oscar.apps.order',
-    'oscar.apps.customer',
-    'oscar.apps.promotions',
-    'oscar.apps.search',
-    'oscar.apps.voucher',
-    'oscar.apps.wishlists',
-    'oscar.apps.dashboard',
-    'oscar.apps.dashboard.reports',
-    'oscar.apps.dashboard.users',
-    'oscar.apps.dashboard.orders',
-    'oscar.apps.dashboard.promotions',
-    'oscar.apps.dashboard.catalogue',
-    'oscar.apps.dashboard.offers',
-    'oscar.apps.dashboard.partners',
-    'oscar.apps.dashboard.pages',
-    'oscar.apps.dashboard.ranges',
-    'oscar.apps.dashboard.reviews',
-    'oscar.apps.dashboard.vouchers',
-    'oscar.apps.dashboard.communications',
-    'oscar.apps.dashboard.shipping',
+    # 'oscar',
+    # 'oscar.apps.analytics',
+    # 'oscar.apps.checkout',
+    # 'oscar.apps.address',
+    # # 'oscar.apps.shipping',
+    # 'oscar.apps.catalogue',
+    # 'oscar.apps.catalogue.reviews',
+    # 'oscar.apps.partner',
+    # 'oscar.apps.basket',
+    # 'oscar.apps.payment',
+    # 'oscar.apps.offer',
+    # 'oscar.apps.order',
+    # 'oscar.apps.customer',
+    # 'oscar.apps.promotions',
+    # 'oscar.apps.search',
+    # 'oscar.apps.voucher',
+    # 'oscar.apps.wishlists',
+    # 'oscar.apps.dashboard',
+    # 'oscar.apps.dashboard.reports',
+    # 'oscar.apps.dashboard.users',
+    # 'oscar.apps.dashboard.orders',
+    # 'oscar.apps.dashboard.promotions',
+    # 'oscar.apps.dashboard.catalogue',
+    # 'oscar.apps.dashboard.offers',
+    # 'oscar.apps.dashboard.partners',
+    # 'oscar.apps.dashboard.pages',
+    # 'oscar.apps.dashboard.ranges',
+    # 'oscar.apps.dashboard.reviews',
+    # 'oscar.apps.dashboard.vouchers',
+    # 'oscar.apps.dashboard.communications',
+    # 'oscar.apps.dashboard.shipping',
 
     # 3rd-party apps that Oscar depends on
     'widget_tweaks',
-    'haystack',
-    'treebeard',
-    'sorl.thumbnail',
-    'django_tables2',
+    # 'haystack',
+    # 'treebeard',
+    # 'sorl.thumbnail',
+    # 'django_tables2',
 
     # Django apps that the sandbox depends on
     'django.contrib.sitemaps',
@@ -322,7 +322,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'mycustomapi',
-]
+] + get_core_apps()
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -404,8 +404,8 @@ OSCAR_ALLOW_ANON_CHECKOUT = True
 # Sample order/line status settings. This is quite simplistic. It's like you'll
 # want to override the set_status method on the order object to do more
 # sophisticated things.
-OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCARAPI_INITIAL_ORDER_STATUS = 'Pending'
+OSCARAPI_INITIAL_LINE_STATUS = 'Pending'
 
 # This dict defines the new order statuses than an order can move to
 OSCAR_ORDER_STATUS_PIPELINE = {
